@@ -57,11 +57,11 @@ html, body
     justify-content: flex-end
 
 [class*="col"]
-  display: table-cell
   width: 100%
   padding: 0 $column-gutter/2
 
 @mixin col-size($col)
+  display: inline-block
   width: (100% * $col / 12)
   max-width: (100% * $col / 12)
   -webkit-flex-basis: (100% * $col / 12)
@@ -79,6 +79,8 @@ html, body
   @each $col in (1,2,3,4,5,6,7,8,9,10,11,12)
     .col-sm-#{$col}
       @include col-size($col)
+  .hidden-sm
+    display: none
 
 @media (min-width: #{$device-md})
   html, body
@@ -86,8 +88,12 @@ html, body
   @each $col in (1,2,3,4,5,6,7,8,9,10,11,12)
     .col-md-#{$col}
       @include col-size($col)
+  .hidden-md
+    display: none
 
 @media (min-width: #{$device-lg})
   @each $col in (1,2,3,4,5,6,7,8,9,10,11,12)
     .col-lg-#{$col}
       @include col-size($col)
+  .hidden-lg
+    display: none
